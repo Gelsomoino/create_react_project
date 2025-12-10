@@ -12,6 +12,20 @@
   (在学习过程中 ，建议使用 yarn start）
 
 
+yarn eject | npm run eject  生成一堆配置文件，且不能删除不能撤退
+
+
+/*       ------      */
+UUID安装 
+npm install uuid
+
+一次性检查多个包
+npm list uuid react react-dom
+
+查看所有已安装的包
+npm list   # 或简写  npm ls
+
+/*       ------      */
 
 
 
@@ -21,3 +35,50 @@
 
 
 在下载react 项目后 没有 node_modules 文件 需要 执行 npm i  安装所有依赖
+
+
+功能界面的组件化编码流程（通用）
+1.拆分组件 （拆分界面，抽取组件）
+2.实现静态组件（使用组件实现静态页面效果）
+3.实现动态组件
+  3.1动态显示初始化数据
+       数据类型、数据名称、保存在那个组件
+  3.2 交互（从绑定事件监听开始）  
+
+数组的reduce方法
+语法
+     *    arr.reduce((preValue, current, index, arr)=>{},initialValue)
+     *    - arr: 当前操作的数组
+     *    - preValue: 
+     *      - 第一次执行回调时为给定的初始值initialValue,
+     *      - 以后是上一次执行回调的返回值
+     *      - 备注：若没有传入initialValue，
+     *        则第一次的preValue值是数组中第一个元素的值
+     *    - current: 表示当前正在处理的元素
+     *    - index：表示当前正在处理的数组元素的索引，
+     *      - 若传入了initialValue值，则为0，否则为1
+     *    - array: 当前操作的数组（就是arr）
+     *    - initialValue： 表示初始值，一般做数学运算时设置为0，若筛选最值可以不传
+
+
+state = {
+            todos: [
+                {id: '001', name: '打游戏', done: true},
+                {id: '002', name: '看电影', done: true},
+                {id: '003', name: '练书法', done: true},
+                {id: '004', name: '游泳', done: false}
+            ]
+        };
+checkedAll = (done) => {
+        const { todos } = this.state;
+        const newList = todos.map((todoObj) => ({
+            ...todoObj, 
+            done: done
+        }));
+        this.setState({ todos: newList });
+    }
+ const { todos } = this.state; 中 { todos }应与state 下的 todos 一致，不然会报错
+
+
+
+箭头函数 test=()=>{}默认想返回一个对象时不能出现{}要用（）包裹
